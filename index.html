@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Tahunan PPL - King Mamank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/mamank757/laporantahunan/99a53aa811aa2ca20fd3c0c0ba2194be56d2b5e6/Gemini_Generated_Image_o9onvjo9onvjo9on%20(1)%20(1).png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        .report-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+     /* Pastikan container tanda tangan memiliki struktur yang stabil */
+#sig_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+    width: 100%;
+    align-items: end; /* Ini kunci agar bagian bawah (nama) sejajar */
+}
+
+.sig-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 180px; /* Memberi ruang yang cukup untuk TTD */
+}   
+        #show_koordinator:checked + .check-icon {
+        opacity: 1;
+    }
+    #show_koordinator:checked {
+        border-color: #10b981;
+        background-color: #10b981;
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+        body { background: #0f172a; color: #f1f5f9; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        
+        /* PENGATURAN KERTAS F4 */
+        .page {
+            background: white; width: 215mm; min-height: 330mm;
+            padding: 20mm 20mm; margin: 20px auto; color: black;
+            font-family: 'Times New Roman', Times, serif; font-size: 11pt; line-height: 1.5;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5); position: relative;
+            box-sizing: border-box; display: flex; flex-direction: column;
+        }
+
+        /* NOMOR HALAMAN DIKUNCI DI BAWAH */
+        .page-number { position: absolute; bottom: 10mm; left: 50%; transform: translateX(-50%); font-size: 10pt; z-index: 10; }
+        
+        /* FIX TABEL BREAK & MARGIN */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 8.5pt; table-layout: fixed; page-break-inside: auto; }
+        thead { display: table-header-group; } 
+        tr { page-break-inside: avoid; page-break-after: auto; }
+        th, td { border: 1px solid black; padding: 6px 4px; vertical-align: top; word-wrap: break-word; }
+        th { background-color: #f3f4f6; font-weight: bold; text-align: center; text-transform: uppercase; }
+
+        /* TANDA TANGAN LAYERED */
+        .sig-container { display: inline-block; min-width: 250px; text-align: center; position: relative; margin-top: 10px; }
+        .img-ttd { position: absolute; left: 50%; bottom: 0px; transform: translateX(-50%); max-height: 100px; width: auto; z-index: 10; mix-blend-mode: multiply; pointer-events: none; }
+        .name-line { font-weight: bold; text-transform: uppercase; border-bottom: 1px solid black; display: inline-block; padding: 0 5px; position: relative; z-index: 5; }
+
+       @media print {
+    /* 1. Atur Ukuran Kertas F4 secara fisik */
+    @page { 
+        size: 215mm 330mm; 
+        margin: 0; 
+    }
+    
+    body { background: white; padding: 0; margin: 0; }
+    .no-print { display: none !important; }
+
+    /* 2. Atur setiap 'page' agar menjadi satu lembar kertas utuh */
+    .page { 
+        margin: 0 !important; 
+        box-shadow: none; 
+        width: 215mm; 
+        height: 330mm; 
+        padding: 25mm 20mm 20mm 20mm; /* Margin dalam kertas (Padding) */
+        page-break-after: always; /* Paksa kertas ganti baru setelah satu div .page selesai */
+        position: relative;
+        display: block;
+        color: black;
+    }
+
+    /* 3. Matikan auto-break bawaan browser agar tidak bentrok dengan applySmartBreak */
+    table { 
+        page-break-inside: auto; 
+    }
+    tr { 
+        page-break-inside: avoid; 
+    }
+}
+
+        .no-print-area { background: #1e293b; border-radius: 15px; padding: 25px; border: 1px solid #334155; }
+        .input-card { background: #334155; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 5px solid #475569; }
+        .input-card.active { border-left-color: #10b981; background: #1e293b; }
+        textarea, input, select { width: 100%; background: #0f172a; border: 1px solid #475569; color: white; padding: 8px; border-radius: 6px; margin-top: 8px; }
+        .ai-content { color: black !important; font-style: normal !important; text-align: justify; white-space: pre-line; }
+    </style>
+</head>
+<body>
+<div id="browser-warning" class="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/90 backdrop-blur-md no-print p-4">
+    <div class="bg-slate-800 p-6 sm:p-8 rounded-3xl border border-emerald-500/50 max-w-md w-full max-h-[90vh] overflow-y-auto text-center shadow-2xl ring-1 ring-white/10 custom-scrollbar">
+        
+       <h3 class="text-xl font-bold text-white mb-3">Informasi Penggunaan</h3>
+        <div class="mb-4">
+            <img src="https://github.com/mamank757/laporanbola/blob/d0a50483d98999dce2a925f3e93d627168c2e360/ChatGPT%20Image%2030%20Mar%202026,%2002.51.28.png?raw=true" 
+                 alt="Panduan" 
+                 class="w-full max-h-40 object-contain rounded-2xl border border-white/10 shadow-lg bg-slate-900">
+        </div>
+
+        
+        
+        <div class="text-slate-300 mb-8 text-sm leading-relaxed space-y-3">
+            <p><b>Generating</b> laporan SKP Tahunan dari <b>Mamank.</b> Follow TikTok sy: <b>King Mamank</b>.</p>
+            <p class="bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/30 text-sm md:text-base text-emerald-50 text-left">
+                <i class="fa-solid fa-robot mr-2 text-emerald-400"></i> 
+                <b class="text-white"></b> Utk hasil cetak laporan yg optimal, gunakan <b>HP Android</b> atau <b>Laptop</b> dgn browser <b>Google Chrome.</b> Jika Generating AI gagal krn trafik padat. Coba lagi beberapa saat, <b>jangan</b> <i>refresh</i> halaman.
+            </p>
+        </div>
+
+        <button onclick="closeWarning()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-2xl transition-all duration-300 active:scale-95 shadow-lg shadow-emerald-900/20">
+            SAYA MENGERTI
+        </button>
+    </div>
+</div>
+<div class="no-print max-w-7xl mx-auto p-4">
+    <div class="no-print-area shadow-2xl border-t-4 border-emerald-500">
+        <h2 class="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">
+          <i class="fa-solid fa-file-invoice"></i> PPL WAJO REPORT GENERATOR - TAHUNAN
+            </h2>
+                  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+            <div class="lg:col-span-1 flex flex-col gap-3"> 
+              <label class="text-[10px] font-bold text-slate-400 uppercase">NAMA PENYULUH</label>
+<input type="text" id="in_nama" oninput="sync()" placeholder="Tulis Nama Lengkap & Gelar" class="w-full bg-slate-900 border-emerald-500/50 text-white p-3 rounded-lg focus:ring-2 focus:ring-emerald-500">
+                <input type="text" id="in_nip" oninput="sync()" placeholder="NIP">
+                <select id="in_jabatan" onchange="sync()">
+                        <option value="Penyuluh Pertanian Ahli Pertama">Penyuluh Pertanian Pemula</option>
+                        <option value="Penyuluh Pertanian Ahli Muda">Penyuluh Pertanian Terampil</option>
+                        <option value="Penyuluh Pertanian Ahli Pertama">Penyuluh Pertanian Mahir</option>
+                        <option value="Penyuluh Pertanian Ahli Muda">Penyuluh Pertanian Penyelia</option>
+                        <option value="Penyuluh Pertanian Ahli Pertama">Penyuluh Pertanian Ahli Pertama</option>
+                        <option value="Penyuluh Pertanian Ahli Muda">Penyuluh Pertanian Ahli Muda</option>
+                        <option value="Penyuluh Pertanian Ahli Madya">Penyuluh Pertanian Ahli Madya</option>
+                        <option value="Penyuluh Pertanian Ahli Utama">Penyuluh Pertanian Ahli Utama</option>
+                </select>
+                <input type="text" id="in_wkpp" oninput="sync()" placeholder="WKPP">
+                <input type="text" id="in_bpp" oninput="sync()" placeholder="Kecamatan/BPP">
+                                <input type="date" id="in_tanggal" oninput="sync()">
+                <div class="flex flex-col gap-1">
+    <label class="text-[10px] font-bold text-slate-400 uppercase">UPLOAD TTD PENYULUH (PNG Transparan)</label>
+    <div class="relative group">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="fa-solid fa-signature text-slate-500"></i>
+        </div>
+        <input type="file" id="in_ttd" accept="image/*" onchange="handleTTD(this)" 
+            class="pl-10 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 cursor-pointer">
+    </div>
+    <p class="text-[9px] text-slate-500 italic">*Tulisan TTD akan muncul otomatis di lembar cetak</p>
+</div>
+
+<div class="bg-slate-700/50 p-4 rounded-xl border border-slate-600/50 mt-3 transition-all duration-300">
+    <label class="flex items-center gap-3 cursor-pointer group select-none">
+        <div class="relative flex items-center">
+            <input type="checkbox" id="show_koordinator" onchange="sync()" 
+                class="w-5 h-5 rounded border-slate-500 bg-slate-900 text-emerald-500 focus:ring-emerald-500 focus:ring-offset-slate-800 cursor-pointer appearance-none checked:bg-emerald-500 border-2 transition-all">
+            <i class="fa-solid fa-check absolute opacity-0 check-icon text-[10px] text-slate-900 left-1 pointer-events-none transition-opacity"></i>
+        </div>
+        <span class="text-[11px] font-bold text-slate-300 group-hover:text-emerald-400 uppercase tracking-wider transition-colors">
+            Tampilkan TTD Koordinator BPP
+        </span>
+    </label>
+
+    <div id="input_koordinator_area" class="mt-3 space-y-2 hidden border-t border-slate-600/30 pt-3 animate-fade-in">
+        <div class="relative">
+            <input type="text" id="in_nama_koor" oninput="sync()" placeholder="Nama Koordinator" 
+                class="pl-3 bg-slate-900 border-slate-600 text-xs focus:border-emerald-500 transition-colors uppercase">
+        </div>
+        <div class="relative">
+            <input type="text" id="in_nip_koor" oninput="sync()" placeholder="NIP Koordinator" 
+                class="pl-3 bg-slate-900 border-slate-600 text-xs focus:border-emerald-500 transition-colors">
+        </div>
+        
+        <div class="mt-2 p-2 bg-slate-800/50 rounded-lg border border-dashed border-slate-500">
+            <label class="text-[9px] font-bold text-slate-400 uppercase block mb-1">TTD Koordinator (PNG)</label>
+            <input type="file" accept="image/*" onchange="handleTTDGeneric(this, 'out_ttd_koor_img')" 
+                class="text-[9px] file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-[9px] file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-500 cursor-pointer w-full">
+        </div>
+    </div>
+</div>
+                <button onclick="generateAI()" id="btn-ai" class="mt-4 w-full bg-indigo-600 py-4 rounded-xl font-bold text-white shadow-lg">🚀 GENERATE AI</button>
+                <button onclick="window.print()" class="w-full bg-emerald-600 py-3 rounded-xl font-bold text-white">CETAK/SIMPAN</button>
+            </div>
+            <div class="lg:col-span-3">
+                <label class="text-xs font-bold text-slate-400 uppercase mb-3 block italic">Input Realisasi Bulan I, II, dan III dlm satuan lap atau persen (gunakan angka):</label>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[700px] overflow-y-auto pr-2" id="input_container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="report-container">
+    <div class="page sampul-page flex flex-col items-center justify-between py-24 text-center">
+        <div class="w-full">
+            <h1 class="text-2xl font-bold mb-2">LAPORAN KINERJA TAHUNAN</h1>
+            <h2 class="text-lg font-bold px-10 leading-snug">Pelaksanaan Tugas Pendampingan Program Utama<br>Kementerian Pertanian</h2>
+        </div>
+        <div class="flex-grow flex flex-col justify-center items-center w-full space-y-12">
+            <div class="space-y-3 uppercase">
+                <h3 class="font-bold text-xl" id="out_tri_cover">2026</h3>
+                <p class="text-lg font-bold" id="out_jabatan_cover">PENYULUH PERTANIAN</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Logo_Kementerian_Pertanian_Republik_Indonesia.svg/3840px-Logo_Kementerian_Pertanian_Republik_Indonesia.svg.png" class="w-48 mx-auto">
+            <div class="max-w-xl mx-auto text-left pl-10 uppercase">
+    <table style="border:none; width:100%; border-collapse: collapse; font-size: 12pt !important; line-height: 1.8;">
+        <tr style="border:none;">
+            <td style="border:none; width:160px; padding: 5px 0; font-weight: bold; vertical-align: top;">NAMA</td>
+            <td style="border:none; width:20px; padding: 5px 0; vertical-align: top;">:</td>
+            <td style="border:none; padding: 5px 0;"><b id="out_nama_cover">-</b></td>
+        </tr>
+        <tr style="border:none;">
+            <td style="border:none; padding: 5px 0; font-weight: bold; vertical-align: top;">NIP</td>
+            <td style="border:none; padding: 5px 0; vertical-align: top;">:</td>
+            <td style="border:none; padding: 5px 0;"><span id="out_nip_cover">-</span></td>
+        </tr>
+        <tr style="border:none;">
+            <td style="border:none; padding: 5px 0; font-weight: bold; vertical-align: top;">WKPP</td>
+            <td style="border:none; padding: 5px 0; vertical-align: top;">:</td>
+            <td style="border:none; padding: 5px 0; line-height: 1.4;"><span id="out_wkpp_cover">-</span></td>
+        </tr>
+        <tr style="border:none;">
+            <td style="border:none; padding: 5px 0; font-weight: bold; vertical-align: top;">BPP WILAYAH</td>
+            <td style="border:none; padding: 5px 0; vertical-align: top;">:</td>
+            <td style="border:none; padding: 5px 0;"><span id="out_bpp_cover">-</span></td>
+        </tr>
+    </table>
+</div>
+        </div>
+        <div class="font-bold uppercase space-y-1">
+            <p>KEMENTERIAN PERTANIAN</p>
+            <p>BADAN PENYULUHAN DAN PENGEMBANGAN SDM PERTANIAN</p>
+            <p>PUSAT PENYULUHAN PERTANIAN</p>
+            <p class="mt-8 text-lg">2026</p>
+        </div>
+        <div class="page-number" style="display:none;"></div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-bold text-lg uppercase mb-8">BAB I. PENDAHULUAN</h2>
+        <h3 class="font-bold text-sm uppercase">1.1. Latar Belakang</h3>
+        <div id="out_latar" class="ai-content mb-6">Menunggu AI...</div>
+        <h3 class="font-bold text-sm uppercase">1.2. Tujuan Pelaporan</h3>
+<div id="out_tujuan" class="ai-content">...</div>
+        <div class="page-number">1</div>
+    </div>
+    
+<div class="page auto-height">
+    <h2 class="text-center font-bold text-lg uppercase mb-6">BAB II. PEMBAHASAN</h2>
+        <h3 class="font-bold text-sm uppercase">2.1. Ringkasan Target vs Realisasi</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 45%;">Indikator Kinerja Individu (IKI)</th>
+                    <th style="width: 15%;">Target</th>
+                    <th style="width: 15%;">Realisasi</th>
+                    <th style="width: 10%;">Satuan</th>
+                    <th style="width: 15%;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="out_target_body"></tbody>
+        </table>
+       <h3 class="font-bold text-sm uppercase mt-8">2.2. Matriks Analisis Capaian Kinerja</h3>
+<table>
+    <thead>
+        <tr>
+            <th style="width: 30px;">No</th>
+            <th style="width: 30%;">Komponen IKI</th>
+            <th style="width: 40%;">Analisis Kinerja</th>
+            <th style="width: 30%;">Kendala & Tindak Lanjut</th>
+            
+        </tr>
+    </thead>
+    <tbody id="out_table_body"></tbody>
+</table>
+        <div class="page-number">2</div>
+    </div>
+
+    <div class="page flex flex-col justify-between">
+        <div>
+            <h2 class="text-center font-bold text-lg uppercase mb-8">BAB III. KESIMPULAN</h2>
+            <div id="out_kesimp" class="ai-content leading-relaxed">...</div>
+        </div>
+      <div id="sig_wrapper" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; width: 100%;">
+    <div id="col_koor" class="hidden sig-box">
+        <div style="margin-bottom: auto;">
+            Mengetahui,<br>
+            Koordinator BPP,
+        </div>
+        <div class="h-24 flex items-center justify-center relative" style="height: 100px;">
+            <img id="out_ttd_koor_img" src="" class="img-ttd hidden" style="max-height: 100px;">
+        </div>
+        <div>
+            <p class="name-line" id="out_nama_koor_sig">-</p><br>
+            NIP. <span id="out_nip_koor_sig">-</span>
+        </div>
+    </div>
+
+    <div id="col_penyuluh" class="sig-box" style="grid-column: 2;">
+        <div style="margin-bottom: auto;">
+            <span id="out_lokasi_tgl">..., ...</span><br>
+            Penyuluh Pertanian,
+        </div>
+        <div class="h-24 flex items-center justify-center relative" style="height: 100px;">
+            <img id="out_ttd_img" src="" class="img-ttd hidden" style="max-height: 100px;">
+        </div>
+        <div>
+            <p class="name-line" id="out_nama_sig">-</p><br>
+            NIP. <span id="out_nip_sig">-</span>
+        </div>
+    </div>
+</div>
+        <div class="page-number">3</div>
+    </div>
+</div>
+
+<script>
+    // 1. DAFTAR BLOKIR NIP
+    const daftarNipTerblokir = ["199409042020122001", "19940904 202012 2 001"];
+
+    function closeWarning() {
+        document.getElementById('browser-warning').style.display = 'none';
+    }
+
+    function applySmartBreak() {
+        const container = document.querySelector('.report-container');
+        const tableBody = document.getElementById('out_table_body');
+        if (!container || !tableBody) return;
+
+        const rows = Array.from(tableBody.querySelectorAll('tr'));
+        document.querySelectorAll('.page-extra').forEach(p => p.remove());
+
+        const maxHeight = 850;
+        let currentHeight = 0;
+        let currentTableBody = tableBody;
+
+        rows.forEach((row) => {
+            const rowHeight = row.offsetHeight;
+            if (currentHeight + rowHeight > maxHeight) {
+                const newPage = document.createElement('div');
+                newPage.className = "page auto-height page-extra";
+                newPage.innerHTML = `
+                    <p class="font-bold mb-4 italic text-sm text-gray-500">Lanjutan Matriks Analisis Capaian Kinerja</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 30px;">No</th>
+                                <th style="width: 30%;">Komponen IKI</th>
+                                <th style="width: 40%;">Analisis Kinerja</th>
+                                <th style="width: 30%;">Kendala & Tindak Lanjut</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="page-number">2</div>`;
+                const pages = container.querySelectorAll('.page');
+                container.insertBefore(newPage, pages[pages.length - 1]);
+                currentTableBody = newPage.querySelector('tbody');
+                currentHeight = 0;
+            }
+            currentTableBody.appendChild(row);
+            currentHeight += row.offsetHeight;
+        });
+    }
+    
+const dataPenyuluh = {
+    "ABDUL RAHMAN, SP": {
+        nip: "199009202020121001",
+        wilayah: "DESA MANURUNG"
+    },
+    "A. FATHUR MUH. ISHAQ B, S.ST., M.Si": {
+        nip: "199604112020121001",
+        wilayah: "KEL. LAELO, KEL. TEMPE, KEL. CEMPALAGI"
+    },
+    "ANDI LUTHFIAH, SP": {
+        nip: "199307162020122003",
+        wilayah: "DESA MANNAGAE & DESA ASSORAJANG"
+    
+    },
+    "INDRA YULIANA, S.TP., M.Si.": {
+        nip: "199307062020122001",
+        wilayah: "DESA ALEWADENG"
+    },
+    "MIFTAHUL KHAIR, S.P.": {
+        nip: "199311192020122003",
+        wilayah: "DESA LEMPA"
+    },
+    "NURUL FAHMI, S.P.": {
+        nip: "198911142020122002",
+        wilayah: "DESA BOTTOBENTENG & DESA RUMPIA"
+    },
+    "REZKI RAHAYU, S.P.": {
+        nip: "199507052020122003",
+        wilayah: "KELURAHAN MAPPADAELO"
+    },
+    "RIZAL SMITH ANUGRAH SYAM, S.P.": {
+        nip: "199005152020121001",
+        wilayah: "DESA WORONGNGE"
+    },
+    "SUHADY HAMDAN, S.P.": {
+        nip: "199202072020121001",
+        wilayah: "DESA PASELLORENG & KELURAHAN GILIRENG"
+    },
+    "SULFIANITA, S.P.": {
+        nip: "199505082020122004",
+        wilayah: "DESA SIMPURSIA"
+    },
+    "SURAHMAN, S.TP": {
+        nip: "199203122020121003",
+        wilayah: "DESA BARANGMAMASE"
+    },
+    "UMAR, SP": {
+        nip: "199408272020121001",
+        wilayah: "DESA WALANGA & DESA RADDAE"
+    }
+};
+
+    
+    const ikiRef = [
+    { id: 1, k: "Jumlah Laporan Luas Tambah Tanam (Padi, Jagung, Kedelai)", tar: 12, sat: "Laporan" }, // 
+    { id: 2, k: "Persentase Pendampingan Produksi Hortikultura", tar: 100, sat: "%" }, // 
+    { id: 3, k: "Persentase Pendampingan Hilirisasi Perkebunan", tar: 100, sat: "%" }, // 
+    { id: 4, k: "Persentase Pendampingan Produksi Ternak", tar: 100, sat: "%" }, // 
+    { id: 5, k: "Persentase Pendampingan Pemanfaatan Alsintan", tar: 100, sat: "%" }, // 
+    { id: 6, k: "Persentase Pendampingan RDKK Pupuk Subsidi", tar: 100, sat: "%" }, // 
+    { id: 7, k: "Persentase Pendampingan CSR", tar: 100, sat: "%" }, // 
+    { id: 8, k: "Persentase Pendampingan Irigasi", tar: 100, sat: "%" }, // 
+    { id: 9, k: "Persentase Penderasan Materi & Kelompencapir Digital", tar: 100, sat: "%" }, // 
+    { id: 10, k: "Persentase Pendampingan Brigade Pangan (BP)", tar: 100, sat: "%" }, // 
+    { id: 11, k: "Persentase Pengawalan CPCL Bantuan Pemerintah", tar: 100, sat: "%" }, // 
+    { id: 12, k: "Persentase Verval Distribusi Pupuk Subsidi", tar: 100, sat: "%" }, // 
+    { id: 13, k: "Persentase Pelaksanaan Tugas Fungsi Penyuluhan", tar: 100, sat: "%" }, // 
+    { id: 14, k: "Jumlah Data Statistik Pertanian Hortikultura", tar: 24, sat: "Data" }, // 
+    { id: 15, k: "Jumlah Laporan Data Statistik Tanaman Pangan", tar: 12, sat: "Laporan" }, // 
+    { id: 16, k: "Jumlah Laporan Data Statistik Perkebunan", tar: 6, sat: "Laporan" }  // 
+];
+
+    function validasiNiptahunan() {
+        const nipInput = document.getElementById('in_nip');
+        const btnAi = document.getElementById('btn-ai');
+        const val = nipInput.value.trim();
+        
+        if (daftarNipTerblokir.includes(val)) {
+            btnAi.style.backgroundColor = "#991b1b";
+            btnAi.innerHTML = "🚫 AKSES DIBLOKIR";
+            btnAi.disabled = true;
+            nipInput.style.color = "red";
+        } else {
+            btnAi.style.backgroundColor = "";
+            btnAi.innerHTML = "🚀 GENERATE AI";
+            btnAi.disabled = false;
+            nipInput.style.color = "";
+        }
+    }
+
+   function init() {
+    const cont = document.getElementById('input_container');
+    cont.innerHTML = "";
+    ikiRef.forEach((item) => {
+        cont.innerHTML += `<div class="input-card" id="card_${item.id}">
+            <div class="flex items-start gap-3 mb-3">
+                <input type="checkbox" id="chk_${item.id}" onchange="toggle(${item.id})" class="mt-1 w-4 h-4 shrink-0">
+                <label class="text-white text-[11px] font-bold leading-tight cursor-pointer" for="chk_${item.id}">${item.id}. ${item.k}</label>
+            </div>
+            <div id="box_${item.id}" class="hidden flex flex-col gap-3 ml-7">
+                <input type="number" id="m1_${item.id}" placeholder="Triwulan I" oninput="updateView()">
+                <input type="number" id="m2_${item.id}" placeholder="Triwulan II" oninput="updateView()">
+                <input type="number" id="m3_${item.id}" placeholder="Triwulan III" oninput="updateView()">
+                 <input type="number" id="m4_${item.id}" placeholder="Triwulan IV" oninput="updateView()">
+                <input type="text" id="link_${item.id}" placeholder="Link Bukti (Drive/Sosmed)" oninput="updateView()" class="border-emerald-500/30 text-[10px]">
+                <textarea id="ken_${item.id}" placeholder="Kendala/Tindak Lanjut"></textarea>
+            </div>
+        </div>`;
+    });
+    sync();
+}
+
+    function toggle(id) {
+        document.getElementById(`box_${id}`).classList.toggle('hidden', !document.getElementById(`chk_${id}`).checked);
+        document.getElementById(`card_${id}`).classList.toggle('active', document.getElementById(`chk_${id}`).checked);
+        updateView();
+    }
+
+   function sync() {
+    const val = (id) => document.getElementById(id).value;
+    const tahunSekarang = new Date().getFullYear(); // Ambil tahun sistem
+    
+    // 1. Judul Otomatis pada Cover
+    const outTriCover = document.getElementById('out_tri_cover');
+    if (outTriCover) {
+        outTriCover.innerText = "PERIODE " + tahunSekarang;
+    }
+
+    // 2. Isi Data Penyuluh (Otomatis dari dataPenyuluh jika nama dipilih)
+    const namaInput = val('in_nama');
+    if(dataPenyuluh[namaInput]) {
+        document.getElementById('in_nip').value = dataPenyuluh[namaInput].nip;
+        document.getElementById('in_wkpp').value = dataPenyuluh[namaInput].wilayah;
+    }
+
+    // 3. Sinkronisasi Elemen Lainnya
+    document.getElementById('out_nama_cover').innerText = val('in_nama') || "-";
+    document.getElementById('out_nip_cover').innerText = val('in_nip') || "-";
+    document.getElementById('out_wkpp_cover').innerText = (val('in_wkpp') || "-").toUpperCase();
+    document.getElementById('out_bpp_cover').innerText = (val('in_bpp') || "-").toUpperCase();
+    
+    // TTD Penyuluh
+    document.getElementById('out_nama_sig').innerText = val('in_nama') || "-";
+    document.getElementById('out_nip_sig').innerText = val('in_nip') || "-";
+    
+    // Lokasi & Tanggal TTD
+    const dateStr = val('in_tanggal');
+    const dateIndo = dateStr ? new Date(dateStr).toLocaleDateString('id-ID', {day:'numeric', month:'long', year:'numeric'}) : "...";
+    document.getElementById('out_lokasi_tgl').innerText = `${val('in_bpp') || "Bola"}, ${dateIndo}`;
+
+    // Jalankan validasi dan update tabel
+    validasiNiptahunan();
+    updateView();
+}
+
+    function updateView() {
+    const tbT = document.getElementById('out_target_body');
+    const tbM = document.getElementById('out_table_body');
+    if (!tbT || !tbM) return;
+    
+    tbT.innerHTML = ""; 
+    tbM.innerHTML = "";
+    let c = 1;
+
+    ikiRef.forEach((item) => {
+        const checkbox = document.getElementById(`chk_${item.id}`);
+        if(checkbox && checkbox.checked) {
+            
+            // Ambil nilai realisasi per triwulan
+            const v1 = parseFloat(document.getElementById(`m1_${item.id}`).value) || 0;
+            const v2 = parseFloat(document.getElementById(`m2_${item.id}`).value) || 0;
+            const v3 = parseFloat(document.getElementById(`m3_${item.id}`).value) || 0;
+            const v4 = parseFloat(document.getElementById(`m4_${item.id}`).value) || 0;
+
+            // LOGIKA MATEMATIKA PERBAIKAN:
+            let total = 0;
+            if (item.sat === "%") {
+                // Untuk Persentase: Gunakan Rata-rata dari triwulan yang diisi (tidak nol)
+                const inputs = [v1, v2, v3, v4].filter(v => v > 0);
+                total = inputs.length > 0 ? (inputs.reduce((a, b) => a + b, 0) / inputs.length) : 0;
+                total = Math.min(total, 100); // Maksimal 100%
+            } else {
+                // Untuk Jumlah (Laporan/Data): Gunakan Akumulasi (Penjumlahan)
+                total = v1 + v2 + v3 + v4;
+            }
+
+            // Target tetap merujuk pada ikiRef.tar (Target Triwulan dari dokumen) 
+            const targetDinamis = item.tar; 
+
+            // Link Bukti
+            const inputLink = document.getElementById(`link_${item.id}`)?.value || "";
+            let linkPreview = inputLink ? `<br><span style="font-size:7pt; color:blue; font-style:italic;">Bukti: ${inputLink}</span>` : "";
+
+            // Render Tabel Atas (Ringkasan)
+            tbT.innerHTML += `
+                <tr>
+                    <td>${item.k}</td>
+                    <td align="center">${targetDinamis}</td>
+                    <td align="center">${total.toFixed(item.sat === "%" ? 1 : 0)}</td>
+                    <td align="center">${item.sat}</td>
+                    <td align="center">${total >= targetDinamis ? '✅' : '⚠️'}</td>
+                </tr>`;
+            
+            // Render Tabel Bawah (Matriks)
+            tbM.innerHTML += `
+                <tr>
+                    <td align="center">${c++}</td>
+                    <td class="font-bold">${item.k}</td>
+                    <td id="out_r_${item.id}">Menunggu proses AI... ${linkPreview}</td>
+                    <td id="out_k_${item.id}">-</td>
+                </tr>`;
+        }
+    });
+}
+    async function generateAI() {
+    // 1. Ambil nilai NIP dan Elemen Tombol
+    const nipVal = document.getElementById('in_nip').value.trim();
+    const btn = document.getElementById('btn-ai');
+
+    // 2. Logika Blokir NIP
+    if (daftarNipTerblokir.includes(nipVal)) {
+        alert("🚫 AKSES DIBLOKIR");
+        return;
+    }
+
+    if (!nipVal) {
+        alert("Silakan masukkan NIP terlebih dahulu!");
+        return;
+    }
+
+    // 3. Kumpulkan Data yang Dipilih
+    let selectedData = [];
+    ikiRef.forEach((item) => {
+        const chk = document.getElementById(`chk_${item.id}`);
+        if(chk && chk.checked) {
+            selectedData.push({
+                id: item.id, 
+                nama: item.k,
+                m1: document.getElementById(`m1_${item.id}`).value || 0,
+                m2: document.getElementById(`m2_${item.id}`).value || 0,
+                m3: document.getElementById(`m3_${item.id}`).value || 0,
+                m4: document.getElementById(`m4_${item.id}`).value || 0,
+                kendala_user: document.getElementById(`ken_${item.id}`).value || "-"
+            });
+        }
+    });
+
+    if(selectedData.length === 0) {
+        return alert("Pilih minimal satu IKI!");
+    }
+
+    // 4. Buat Narasi Prompt
+    const tahunSekarang = new Date().getFullYear(); 
+    const narasiPrompt = `Anda adalah PPL Pertanian Profesional. 
+Tugas: Menyusun laporan tahunan formal standar Kementerian Pertanian untuk TAHUN ${tahunSekarang}.
+Data Penyuluh: ${document.getElementById('in_nama').value}, 
+BPP: ${document.getElementById('in_bpp').value}, 
+Periode: ${document.getElementById('in_tahunan').value}.
+Data Realisasi: ${JSON.stringify(selectedData)}
+Aturan:
+1. 'latar': Narasi formal minimal 2 paragraf.
+2. 'tujuan': Deskripsi tujuan laporan.
+3. 'kesimp': Ringkasan evaluasi.
+4. 'items': Analisis progres dan solusi teknis.
+Output wajib JSON murni tanpa markdown: {"latar":"", "tujuan":"", "kesimp":"", "items":[{"id":1, "analisis":"", "tindak":""}]}`;
+
+    // 5. Eksekusi ke Google Apps Script
+    btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Ai sedang menyusun laporan...";
+    btn.disabled = true;
+
+   try {
+        const webAppUrl = "https://script.google.com/macros/s/AKfycbwpBSTb0mEMmvJM_oAMefVAFfksxezjqVwktc58Ds9k8cCsmhr8_JlNMJxC_pDOBoUz/exec";
+
+        // Menggunakan method POST tanpa no-cors agar bisa membaca response
+        const response = await fetch(webAppUrl, {
+            method: "POST",
+            mode: "cors", // Pastikan cors, bukan no-cors
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8", // Gunakan text/plain untuk menghindari preflight CORS
+            },
+            body: JSON.stringify({ prompt: narasiPrompt })
+        });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+        
+        const result = await response.json();
+        
+        // Mengambil data dari response Apps Script (struktur Gemini)
+       let rawContent = result.candidates[0].content.parts[0].text;
+// Bersihkan jika ada bungkus markdown ```json
+rawContent = rawContent.replace(/```json/g, "").replace(/```/g, "").trim();
+const aiData = JSON.parse(rawContent);
+
+
+        // 1. Isi Konten Naratif
+        document.getElementById('out_latar').innerHTML = aiData.latar;
+        document.getElementById('out_tujuan').innerHTML = aiData.tujuan;
+        document.getElementById('out_kesimp').innerHTML = aiData.kesimp;
+
+        // 2. Isi Tabel Matriks & Sisipkan Link Bukti
+        aiData.items.forEach(item => {
+            const cellAnalisis = document.getElementById(`out_r_${item.id}`);
+            const cellKendala = document.getElementById(`out_k_${item.id}`);
+            
+            // Ambil nilai link dari input yang ada di form
+            const inputLink = document.getElementById(`link_${item.id}`) ? document.getElementById(`link_${item.id}`).value : "";
+
+            if (cellAnalisis) {
+                // Gabungkan Analisis AI dengan Link Bukti (dengan styling rapi)
+                let linkHTML = inputLink ? `<br><div style="margin-top:8px; padding-top:5px; border-top:1px dashed #ccc; font-size:7pt; color:blue; line-height:1.2;"><b>Link Bukti:</b> <a href="${inputLink}" target="_blank" style="word-break: break-all; text-decoration: underline;">${inputLink}</a></div>` : "";
+                
+                cellAnalisis.innerHTML = item.analisis + linkHTML;
+            }
+            
+            if (cellKendala) {
+                cellKendala.innerText = item.tindak;
+            }
+        });
+
+        // 3. Jalankan perapian halaman
+        applySmartBreak();
+        alert("✅ Narasi AI berhasil dibuat!");
+
+        btn.innerHTML = "🚀 GENERATE AI BERHASIL";
+        btn.disabled = false;
+
+    } catch (error) {
+        console.error(error);
+        alert("Gagal memproses AI: " + error.message);
+        btn.innerHTML = "🚀 GENERATE AI";
+        btn.disabled = false;
+    }
+}
+
+// Inisialisasi awal saat halaman dimuat
+window.onload = init;
+
+function handleTTD(input) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById('out_ttd_img');
+            img.src = e.target.result;
+            img.classList.remove('hidden');
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+function handleTTDGeneric(input, targetId) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById(targetId);
+            img.src = e.target.result;
+            img.classList.remove('hidden');
+        }
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+</body>
+</html>
